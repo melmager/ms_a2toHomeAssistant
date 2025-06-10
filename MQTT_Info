@@ -1,0 +1,96 @@
+{
+  "supported_topics": {
+    "quick_state": "homeassistant/sensor/MSA-(SN)/quick/state",
+    "device_state": "homeassistant/sensor/MSA-(SN)/device/state",
+    "system_state": "homeassistant/sensor/MSA-(SN)/system/state",
+    "ems_mode": "homeassistant/select/MSA-(SN)/ems_mode/command",
+    "power_ctrl": "homeassistant/number/MSA-(SN)/power_ctrl/set"
+  }
+}
+
+homeassistant/sensor/MSA-(SN)/quick/state 
+every second
+{
+  "grid_on_p": "199.9",
+  "grid_off_p": "0.0",
+  "bat_sts": "discharge",
+  "bat_p": "199.9",
+  "soc": "47.90",
+  "sys_pv_p": "0.0",
+  "sys_plug_p": "199.9",
+  "sys_bat_p": "199.9",
+  "sys_grid_p": "-7.8",
+  "sys_load_p": "192.1",
+  "sys_sp_p": "0.0",
+  "sys_soc": "47.90"
+}
+
+homeassistant/sensor/MSA-(SN)/system/state
+5 Minutes
+{
+  "pv_p": "0.0",
+  "plug_p": "199.9",
+  "bat_p": "199.9",
+  "grid_p": "2501.4",
+  "load_p": "2701.3",
+  "sp_p": "0.0",
+  "soc": "45.90",
+  "pv_e": 0,
+  "dchg_e": 755,
+  "chg_e": 338,
+  "plug_out_e": 752,
+  "plug_in_e": 340,
+  "ems_mode": "general"
+}
+
+homeassistant/sensor/MSA-(SN)/device/state 
+5 Minutes
+{
+  "grid": [
+    {
+      "type": "grid_on",
+      "v": "232.4",
+      "i": "0.88",
+      "f": "50.00",
+      "p": "200.0",
+      "q": "-0.1",
+      "ein": 340,
+      "eout": 768,
+      "etin": 18937,
+      "etout": 15218
+    },
+    {
+      "type": "grid_off",
+      "v": "232.6",
+      "i": "0.11",
+      "f": "50.00",
+      "p": "0.2",
+      "q": "-3.4",
+      "ein": 0,
+      "eout": 1,
+      "etin": 30,
+      "etout": 56
+    },
+    {
+      "type": "inv",
+      "v": "231.3",
+      "i": "0.87",
+      "p": "200.5",
+      "q": "-3.5",
+      "ein": 338,
+      "eout": 772,
+      "etin": 18689,
+      "etout": 15185
+    }
+  ],
+  "bat_sts": "discharge",
+  "bat_v": "22.73",
+  "bat_i": "-9.10",
+  "bat_p": "201.5",
+  "bat_temp": "19.0",
+  "soc": "45.20",
+  "rssi": -64
+}
+
+
+
