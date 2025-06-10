@@ -1,0 +1,48 @@
+mqtt:
+  sensor: 
+    - name: "MS_A2 SOC"
+      unique_id: ms_a2_soc 
+      state_topic: "homeassistant/sensor/MSA-(SN)/quick/state"
+      unit_of_measurement: "%"
+      value_template: "{{ value_json.soc }}"
+      device_class: "battery"
+    - name: "MS_A2 Akku Ladung"
+      unique_id: ms_a2_batp
+      state_topic: "homeassistant/sensor/MSA-(SN)/quick/state"
+      unit_of_measurement: "W"
+      value_template: "{{ (value_json.sys_bat_p | float) * -1 }}"
+      device_class: "power"
+      icon: mdi:battery-medium
+    - name: "MS_A2 Batterie Status"
+      unique_id: ms_a2_batsts
+      state_topic: "homeassistant/sensor/MSA-(SN)/quick/state"
+      value_template: "{{ value_json.bat_sts }}"
+    - name: "MS_A2 Akku Temperature"
+      unique_id: ms_a2_battemp
+      state_topic: "homeassistant/sensor/MSA-(SN)/device/state"
+      value_template: "{{ value_json.bat_temp | float }}"
+      device_class: temperature
+      unit_of_measurement: "C"
+    - name: "MS_A2 Netzleistung"
+      unique_id: ms_a2_gridp
+      state_topic: "homeassistant/sensor/MSA-(SN)/quick/state"
+      unit_of_measurement: "W"
+      value_template: "{{ (value_json.sys_grid_p | float) | abs }}"
+      device_class: "power"  
+      icon: mdi:transmission-tower
+  select:
+      command_topic: "homeassistant/select/MSA-(SN)/ems_mode/command"
+      name: "MS_A2 EMS Mode"
+      unique_id: ms_a2_emsmode
+      options:
+        - "general"
+        - "mqtt_ctrl"
+        
+  number:
+    - name: "MS_A2 set Output" 
+      unique_id: ms_a2_pwrctrl
+      command_topic: "homeassistant/number/MSA-(SN)/power_ctrl/set" 
+      unit_of_measurement: "W"
+      mode: box
+      step: 0.1
+      icon: mdi:power-plug-battery-outline
