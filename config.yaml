@@ -27,7 +27,7 @@ mqtt:
       unique_id: ms_a2_gridp
       state_topic: "homeassistant/sensor/MSA-(SN)/quick/state"
       unit_of_measurement: "W"
-      value_template: "{{ (value_json.sys_grid_p | float) | abs }}"
+      value_template: "{{ (value_json.sys_grid_p | float) }}"
       device_class: "power"  
       icon: mdi:transmission-tower
     - name: "MS_A2 Day Energie In"
