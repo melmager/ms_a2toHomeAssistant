@@ -32,15 +32,19 @@ mqtt:
       icon: mdi:transmission-tower
     - name: "MS_A2 Day Energie In"
       unique_id: ms_a2_iein
-      state_topic: "homeassistant/sensor/MSA-(SN)/device/state"
-      value_template: "{{ value_json.grid.2.ein | float }}"
+      state_topic: "homeassistant/sensor/MSA-(SN)/system/state"
+      value_template: "{{ value_json.chg_e | float }}"
+      # state_topic: "homeassistant/sensor/MSA-(SN)/device/state"
+      # value_template: "{{ value_json.grid.2.ein | float }}"
       device_class: energy
       state_class: total_increasing
       unit_of_measurement: "Wh"
     - name: "MS_A2 Day Energie Out"
       unique_id: ms_a2_iout
-      state_topic: "homeassistant/sensor/MSA-(SN)/device/state"
-      value_template: "{{ value_json.grid.2.eout | float }}"  
+      state_topic: "homeassistant/sensor/MSA-(SN)/system/state"
+      value_template: "{{ value_json.dchg_e | float }}"  
+      # state_topic: "homeassistant/sensor/MSA-(SN)/device/state"
+      # value_template: "{{ value_json.grid.2.eout | float }}"  
       device_class: energy
       state_class: total_increasing
       unit_of_measurement: "Wh"
