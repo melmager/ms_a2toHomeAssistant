@@ -63,5 +63,7 @@ mqtt:
       command_topic: "homeassistant/number/MSA-(SN)/power_ctrl/set" 
       unit_of_measurement: "W"
       mode: box
-      step: 0.1
+      step: 1
+      min: -800
+      max: 800
       icon: mdi:power-plug-battery-outline
